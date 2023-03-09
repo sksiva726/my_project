@@ -4,8 +4,8 @@ import numpy as np
 import streamlit as st 
 import pickle
 import numpy as np
-import statsmodels.tsa.holtwinters as hw
-from statsmodels.tsa.holtwinters import ExponentialSmoothing
+#import statsmodels.tsa.holtwinters as hw
+#from statsmodels.tsa.holtwinters import ExponentialSmoothing
 from statsmodels.tsa.holtwinters import ExponentialSmoothing # holts winters Exponential Smoothing
 
 model = pickle.load(open('hwe_model_mul_add_final.pickle', 'rb'))
