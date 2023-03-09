@@ -11,20 +11,20 @@ from statsmodels.tsa.holtwinters import ExponentialSmoothing # holts winters Exp
 model = pickle.load(open('hwe_model_mul_add_final.pickle', 'rb'))
 # opc_bags1 = pd.read_csv(r"C:\Users\DELL\OneDrive\Desktop\sri ra\cement_hwe_2023\opc_bags1.csv")
 # model = pickle.load(open('model_mul_lin.pickle', 'rb'))
-from sqlalchemy import create_engine  
+#from sqlalchemy import create_engine  
 start = 38
 end = 49
 
 def predict(data, user, pw, db):
 
-    engine = create_engine(f"mysql+pymysql://{user}:{pw}@localhost/{db}")
+    #engine = create_engine(f"mysql+pymysql://{user}:{pw}@localhost/{db}")
     # data = pd.to_datetime(data['Date'])
     global start, end
     prediction = model.predict(start, end)
     
     data["forecasted_Sales"] = np.array(prediction)
     
-    data.to_sql('forecast_Sales', con = engine, if_exists = 'replace', chunksize = 1000, index = False)
+    #data.to_sql('forecast_Sales', con = engine, if_exists = 'replace', chunksize = 1000, index = False)
 
     return data
 
